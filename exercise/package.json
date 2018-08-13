@@ -2,13 +2,20 @@
   "name": "movie-ticket-machine-frontend",
   "version": "1.0.0",
   "description": "แบบทดสอบสร้างระบบซื้อตั๋วหนังผ่านตู้ขายตั๋วอัตโนมัติ",
+  "repository": "https://github.com/sirussakorn77/movie-ticket-machine-frontend.git",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
     "build": "next build",
     "start": "next start"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@zeit/next-css": "^0.2.0",
+    "antd": "^3.8.1",
+    "next": "^6.1.1",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
 }
