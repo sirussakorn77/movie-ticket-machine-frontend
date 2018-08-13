@@ -1,0 +1,14 @@
+{
+  "name": "movie-ticket-machine-frontend",
+  "version": "1.0.0",
+  "description": "แบบทดสอบสร้างระบบซื้อตั๋วหนังผ่านตู้ขายตั๋วอัตโนมัติ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "author": "",
+  "license": "ISC"
+}
