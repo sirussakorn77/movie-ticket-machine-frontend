@@ -1,11 +1,19 @@
+import React from 'react'
 import Home from '../src/components/Home'
 import HomeLayout from '../src/components/HomeLayout'
+import { withRouter } from 'next/router'
 
-const index = () => (
-    <div>
-  {/*   <Home /> */}
-    <HomeLayout />
-    </div>
-)
+class index extends React.Component {
+componentDidMount() {
+  const { router } = this.props
+  router.prefetch('/index')
+}
+  render() {
+    return(
+        <div>
+        <HomeLayout />
+        </div>
+    )
+  }}
 
-export default index
+export default withRouter(index)
