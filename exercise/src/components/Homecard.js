@@ -32,7 +32,9 @@ const array = [
 ]
 
 const onCardClick = (name, src, detail) => {
-  Router.push({
+  return (e) =>{
+    e.preventDefault()
+    Router.push({
     pathname: '/detail',
     query: {
       name,
@@ -40,6 +42,7 @@ const onCardClick = (name, src, detail) => {
       detail
     }
   })
+  }
 }
 
 const renderCard = () => (
