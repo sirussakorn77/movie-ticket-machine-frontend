@@ -12,7 +12,7 @@ const array = [
   {
     name: '2',
     detail: 'detail-2',
-    src: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
+    src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
   },
   {
     name: '3',
@@ -22,13 +22,29 @@ const array = [
   {
     name: '4',
     detail: 'detail-4',
-    src: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png'
+    src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
   },
   {
     name: '5',
     detail: 'detail-5',
     src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
   },
+  {
+    name: '6',
+    detail: 'detail-6',
+    src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
+  },
+  {
+    name: '7',
+    detail: 'detail-7',
+    src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
+  },
+  {
+    name: '8',
+    detail: 'detail-8',
+    src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
+  },
+  
 ]
 
 const onCardClick = (name, src, detail) => {

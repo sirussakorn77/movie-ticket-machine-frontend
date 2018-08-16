@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card,Row,Col,Layout,Menu} from 'antd';
 import { withRouter } from 'next/router'
-import Nextpage from '../src/components/Nextpage'
 
 const { Header, Footer, Content } = Layout;
 const { Meta } = Card;
@@ -10,22 +9,22 @@ const detail = (router) => {
   const { name, src, detail } = router.url.query
   return (
     <div>
-      <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/antd/2.9.3/antd.min.css' />
-     <Header><div className="header" >
+      <Layout>
+    <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+      
       <Menu
-        mode="horizontal"
         theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={['2']}
+        style={{ lineHeight: '64px' }}
       >
-        <Menu.Item key="product">
-          <h3>Product</h3>
-        </Menu.Item>
-        <Menu.Item key="About">
-          <h3>About</h3>
-        </Menu.Item>
+        <Menu.Item key="1">nav 1</Menu.Item>
+        <Menu.Item key="2">nav 2</Menu.Item>  
+        <Menu.Item key="3">nav 3</Menu.Item>
       </Menu>
-    </div></Header>
-    
-      <Row>
+    </Header>
+    <Content style={{ padding: '0 50px', marginTop: 64 }}>
+      <div style={{ background: '#fff', padding: 24, minHeight: 380 }}><Row>
       <Col span={12} offset={6}><Card
         hoverable
         style={{ width: 240 }}
@@ -37,9 +36,13 @@ const detail = (router) => {
         />
       </Card></Col>
       
-      </Row>
-      <Content><Nextpage /></Content>
-      <Footer>Footer</Footer>
+      </Row></div>
+    </Content>
+    <Footer style={{ textAlign: 'center' }}>
+      Ant Design ©2018 Created by Ant UED
+    </Footer>
+      
+      </Layout>
     </div>
     
 )}

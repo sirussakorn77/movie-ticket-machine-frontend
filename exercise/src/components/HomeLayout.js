@@ -1,4 +1,4 @@
-import { Layout,Menu } from 'antd';
+import { Layout,Menu,Breadcrumb } from 'antd';
 import '../../static/style/antd.css'
 import Homecard from '../components/Homecard'
 import Searchbar from '../components/Searchbar'
@@ -8,26 +8,28 @@ const { Header, Footer, Content } = Layout;
 
 const HomeLayout = () =>(
 <div>
-<link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/antd/2.9.3/antd.min.css' />
     <Layout>
-    <Header><div className="header" >
+    <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <Menu
-        mode="horizontal"
         theme="dark"
+        mode="horizontal"
+        defaultSelectedKeys={['2']}
+        style={{ lineHeight: '64px' }}
       >
-        <Menu.Item key="product">
-          <h3>Product</h3>
-        </Menu.Item>
-        <Menu.Item key="About">
-          <h3>About</h3>
-        </Menu.Item>
+        <Menu.Item key="1">nav 1</Menu.Item>
+        <Menu.Item key="2">nav 2</Menu.Item>  
+        <Menu.Item key="3">nav 3</Menu.Item>
       </Menu>
-    </div></Header>
-    
-    <Searchbar />
-    <Homecard /> 
-    <Content><Nextpage /></Content>
-    <Footer>Footer</Footer>
+    </Header>
+    <Content style={{ padding: '0 50px', marginTop: 64 }}>
+      <Breadcrumb style={{ margin: '16px 0' }}>
+        <Searchbar />
+      </Breadcrumb>
+      <div style={{ background: '#fff', padding: 24, minHeight: 380 }}><Homecard /></div>
+    </Content>
+    <Footer style={{ textAlign: 'center' }}>
+    </Footer>
+      Ant Design ©2018 Created by Ant UED
   </Layout>
 
 
