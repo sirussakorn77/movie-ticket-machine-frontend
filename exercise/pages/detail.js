@@ -5,8 +5,12 @@ import { withRouter } from 'next/router'
 const { Header, Footer, Content } = Layout;
 const { Meta } = Card;
 
+const success = (name) => (e) => {
+  alert(name + "ok")
+}
+
 const detail = (router) => {
-  const { name, src, detail } = router.url.query
+  const { name, src, detail,price,content } = router.url.query
   return (
     <div>
       <Layout>
@@ -24,18 +28,24 @@ const detail = (router) => {
       </Menu>
     </Header>
     <Content style={{ padding: '0 50px', marginTop: 64 }}>
-      <div style={{ background: '#fff', padding: 24, minHeight: 380 }}><Row>
-      <Col span={12} offset={6}><Card
+      <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
+      <Row>
+      <Col span={6} offset={2}><Card
         hoverable
         style={{ width: 240 }}
         cover={<img alt={name} src={src} />}
+        onClick={success(name)}
       >
         <Meta
           title={name}
-          description={detail}
+          description={detail +'price: '+ price}
         />
-      </Card></Col>
+      </Card>
       
+      </Col>
+      <Col>
+      {content}
+      </Col>
       </Row></div>
     </Content>
     <Footer style={{ textAlign: 'center' }}>

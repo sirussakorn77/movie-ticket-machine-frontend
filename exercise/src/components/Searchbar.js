@@ -5,7 +5,7 @@ const Search = Input.Search;
 const Searchbar =() =>(
 
 
-  <div>
+ 
     
     <Search
       placeholder="input search text"
@@ -13,7 +13,7 @@ const Searchbar =() =>(
       size="small"
       onSearch={value => console.log(value)}
    />
-  </div>
+ 
   )
 
   export default Searchbar

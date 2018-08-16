@@ -7,47 +7,56 @@ const array = [
   {
     name: '1',
     detail: 'detail-1',
-    src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
+    price: 100,
+    src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png',
+    content:'testsetestsetststset'
   },
   {
     name: '2',
     detail: 'detail-2',
+    price: 100,
     src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
   },
   {
     name: '3',
     detail: 'detail-3',
+    price: 100,
     src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
   },
   {
     name: '4',
     detail: 'detail-4',
+    price: 100,
     src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
   },
   {
     name: '5',
     detail: 'detail-5',
+    price: 100,
     src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
   },
   {
     name: '6',
     detail: 'detail-6',
+    price: 100,
     src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
   },
   {
     name: '7',
     detail: 'detail-7',
+    price: 100,
     src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
   },
   {
     name: '8',
     detail: 'detail-8',
+    price: 100,
     src: 'https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png'
   },
   
 ]
 
-const onCardClick = (name, src, detail) => {
+const onCardClick = (name, src, detail,price,content) => {
   return (e) =>{
     e.preventDefault()
     Router.push({
@@ -55,7 +64,9 @@ const onCardClick = (name, src, detail) => {
     query: {
       name,
       src,
-      detail
+      detail,
+      price,
+      content
     }
   })
   }
@@ -65,13 +76,13 @@ const renderCard = () => (
   array.map((idx)=>
   <Col span={6}><Card
   hoverable
-  onClick={onCardClick(idx.name, idx.src, idx.detail)}
+  onClick={onCardClick(idx.name, idx.src, idx.detail, idx.price, idx.content)}
   style={{ width: 240 }}
-  cover={<img alt={idx.name} src={idx.src} />}
+  cover={<img alt={idx.name} src={idx.src} /   >}
 >
   <Meta
     title={idx.name}
-    description={idx.detail}
+    description={idx.detail + 'price: ' + idx.price}
   />
 </Card>
 </Col>

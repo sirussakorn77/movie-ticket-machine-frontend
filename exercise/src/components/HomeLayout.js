@@ -10,6 +10,7 @@ const HomeLayout = () =>(
 <div>
     <Layout>
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+    
       <Menu
         theme="dark"
         mode="horizontal"
@@ -19,11 +20,15 @@ const HomeLayout = () =>(
         <Menu.Item key="1">nav 1</Menu.Item>
         <Menu.Item key="2">nav 2</Menu.Item>  
         <Menu.Item key="3">nav 3</Menu.Item>
+        <Menu.Item key="4"><Searchbar /></Menu.Item>
+
       </Menu>
+      
+      
     </Header>
     <Content style={{ padding: '0 50px', marginTop: 64 }}>
       <Breadcrumb style={{ margin: '16px 0' }}>
-        <Searchbar />
+       
       </Breadcrumb>
       <div style={{ background: '#fff', padding: 24, minHeight: 380 }}><Homecard /></div>
     </Content>
