@@ -3,7 +3,6 @@ import '../../static/style/antd.css'
 import Homecard from '../components/Homecard'
 import Searchbar from '../components/Searchbar'
 import Nextpage from '../components/Nextpage'
-import Cardtitle from '../components/Cardtitle'
 const { Header, Footer, Content } = Layout;
 
 const HomeLayout = () =>(

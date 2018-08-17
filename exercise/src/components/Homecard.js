@@ -1,7 +1,7 @@
-import { Card,Row,Col } from 'antd';
+import { Row,Col } from 'antd';
 import Router from 'next/router'
+import CardDetail from '../components/CardDetail'
 
-const { Meta } = Card;
 
 const array = [
   {
@@ -56,17 +56,17 @@ const array = [
   
 ]
 
-const onCardClick = (name, src, detail,price,content) => {
+const onCardClick = (data) => {
   return (e) =>{
     e.preventDefault()
     Router.push({
     pathname: '/detail',
     query: {
-      name,
-      src,
-      detail,
-      price,
-      content
+      name: data.name,
+      src: data.src,
+      detail: data.detail,
+      price: data.price,
+      content: data.content
     }
   })
   }
@@ -74,18 +74,9 @@ const onCardClick = (name, src, detail,price,content) => {
 
 const renderCard = () => (
   array.map((idx)=>
-  <Col span={6}><Card
-  hoverable
-  onClick={onCardClick(idx.name, idx.src, idx.detail, idx.price, idx.content)}
-  style={{ width: 240 }}
-  cover={<img alt={idx.name} src={idx.src} /   >}
->
-  <Meta
-    title={idx.name}
-    description={idx.detail + 'price: ' + idx.price}
-  />
-</Card>
-</Col>
+  <Col span={6}>
+    <CardDetail data={idx} onCardClick={onCardClick} />
+  </Col>
 ))
 
 const Homecard = () => (

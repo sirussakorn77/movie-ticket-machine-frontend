@@ -1,16 +1,16 @@
 import React from 'react'
-import { Card,Row,Col,Layout,Menu} from 'antd';
+import { Row,Col,Layout,Menu} from 'antd';
 import { withRouter } from 'next/router'
+import CardDetail from '../src/components/CardDetail'
 
 const { Header, Footer, Content } = Layout;
-const { Meta } = Card;
 
-const success = (name) => (e) => {
-  alert(name + "ok")
+const success = (data) => (e) => {
+  alert(data.name + "ok")
 }
 
 const detail = (router) => {
-  const { name, src, detail,price,content } = router.url.query
+  const { content } = router.url.query
   return (
     <div>
       <Layout>
@@ -30,18 +30,8 @@ const detail = (router) => {
     <Content style={{ padding: '0 50px', marginTop: 64 }}>
       <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
       <Row>
-      <Col span={6} offset={2}><Card
-        hoverable
-        style={{ width: 240 }}
-        cover={<img alt={name} src={src} />}
-        onClick={success(name)}
-      >
-        <Meta
-          title={name}
-          description={detail +'price: '+ price}
-        />
-      </Card>
-      
+      <Col span={6} offset={2}>
+      <CardDetail data={router.url.query} onCardClick={success}/>
       </Col>
       <Col>
       {content}
