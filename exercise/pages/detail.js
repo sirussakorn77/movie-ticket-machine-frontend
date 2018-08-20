@@ -1,16 +1,12 @@
 import React from 'react'
-import { Row,Col,Layout,Menu} from 'antd';
+import { Row,Col,Layout,Menu,Modal,Button} from 'antd';
 import { withRouter } from 'next/router'
 import CardDetail from '../src/components/CardDetail'
-
 const { Header, Footer, Content } = Layout;
 
-const success = (data) => (e) => {
-  alert(data.name + "ok")
-}
 
 const detail = (router) => {
-  const { content } = router.url.query
+  const { content } = router.router.query
   return (
     <div>
       <Layout>
@@ -28,18 +24,25 @@ const detail = (router) => {
       </Menu>
     </Header>
     <Content style={{ padding: '0 50px', marginTop: 64 }}>
-      <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
+      <div style={{ background: '#fff', padding: 24, minHeight: 380 ,maxWidth: '80vw'}}>
       <Row>
       <Col span={6} offset={2}>
-      <CardDetail data={router.url.query} onCardClick={success}/>
+      <CardDetail data={router.router.query}/>
       </Col>
-      <Col>
-      {content}
+      <Col  span={6} offset={2}>
+      <p style={{wordWrap: 'break-word'}}>{content}</p>
       </Col>
       </Row></div>
+      
     </Content>
+    
+
+
+    
     <Footer style={{ textAlign: 'center' }}>
       Ant Design ©2018 Created by Ant UED
+
+     
     </Footer>
       
       </Layout>
