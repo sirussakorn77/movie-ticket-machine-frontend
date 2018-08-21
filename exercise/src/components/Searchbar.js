@@ -1,19 +1,40 @@
 import { Input } from 'antd';
+import {searchAllMovies} from '../lib/firebase'
+import { connect } from 'react-redux'
+import { updateAllMovies, sortAllMovies, clearData } from '../actions'
 
 const Search = Input.Search;
 
-const Searchbar =() =>(
+class Searchbar extends React.Component {
 
+  sort(){
+    const {dispatch, movies} = this.props
 
- 
-    
-    <Search
-      placeholder="input search text"
-      enterButton="Search"
-      size="small"
-      onSearch={value => console.log(value)}
-   />
- 
-  )
+    console.log(movies)
+    dispatch(clearData(movies))
+    dispatch(sortAllMovies(movies))
+  }
+   searchMovies (value){
+     const {dispatch} = this.props
+    searchAllMovies(value).then((data) => {
+      console.log(data)
+      dispatch(updateAllMovies(data))
+    })
+   }
 
-  export default Searchbar
+  render() {
+    return(
+      <Search
+        placeholder="input search text"
+        enterButton="Search"
+        size="small"
+        onSearch={value => value ? this.searchMovies(value) : this.sort()}
+    />)
+  } 
+}
+
+const mapStateToProps = state => ({
+  movies: state.movies
+}) 
+
+  export default connect(mapStateToProps)(Searchbar)

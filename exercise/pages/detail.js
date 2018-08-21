@@ -1,12 +1,15 @@
 import React from 'react'
-import { Row,Col,Layout,Menu,Modal,Button} from 'antd';
+import { Row,Col,Layout,Menu, Button,Card} from 'antd';
 import { withRouter } from 'next/router'
 import CardDetail from '../src/components/CardDetail'
+import Modal from '../src/components/Modal'
+
 const { Header, Footer, Content } = Layout;
 
 
 const detail = (router) => {
   const { content } = router.router.query
+
   return (
     <div>
       <Layout>
@@ -29,8 +32,11 @@ const detail = (router) => {
       <Col span={6} offset={2}>
       <CardDetail data={router.router.query}/>
       </Col>
-      <Col  span={6} offset={2}>
+      <Col  span={4} offset={1}>
+      <Card title="Card title" bordered={false} style={{ width: 400 ,background:'#F8F8F9'}}>
       <p style={{wordWrap: 'break-word'}}>{content}</p>
+    </Card>
+      <Modal />
       </Col>
       </Row></div>
       

@@ -1,7 +1,5 @@
 import { Modal, Button } from 'antd';
 
-const Model =() =>(
-
 class App extends React.Component {
   state = {
     loading: false,
@@ -54,6 +52,5 @@ class App extends React.Component {
     );
   }
 }
-)
 
-export default Model
+export default App

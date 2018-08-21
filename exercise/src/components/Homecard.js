@@ -8,9 +8,6 @@ import { updateAllMovies } from '../actions'
 
 
 class Homecard extends Component {
-  state = {
-    movies: []
-  }
 
   componentDidMount(){
     this.getMovie()
@@ -33,7 +30,7 @@ class Homecard extends Component {
   }
   
 
-  async getMovie() {
+  getMovie() {
     const {dispatch} = this.props
     getAllMovies().then((data) => {
       console.log(data)

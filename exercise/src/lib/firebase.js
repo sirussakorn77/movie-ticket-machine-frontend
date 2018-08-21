@@ -26,4 +26,15 @@ const config = {
       return movies
   }
 
-  export { getAllMovies }
+  const searchAllMovies =(value) =>{
+    const movies = new Promise((resolve)=>{
+        const db = firebase.database().ref('movies')
+        db.orderByChild('name').equalTo(value).on('value', (data)=>{
+            data.forEach(element => {
+               resolve([element.val()])
+            });
+        })
+    })
+    return movies
+}
+  export { getAllMovies, searchAllMovies }
