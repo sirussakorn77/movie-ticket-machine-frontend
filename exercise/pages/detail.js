@@ -1,15 +1,20 @@
 import React from 'react'
-import { Row,Col,Layout,Menu, Button,Card} from 'antd';
+import propTypes from 'prop-types'
+import { Row,Col,Layout,Card} from 'antd';
 import { withRouter } from 'next/router'
+import { connect } from 'react-redux'
 import CardDetail from '../src/components/CardDetail'
 import Modal from '../src/components/Modal'
+import BuyDetail from '../src/components/BuyDetail'
 
 const { Header, Footer, Content } = Layout;
 
 
-const detail = (router) => {
-  const { content } = router.router.query
+class detail extends React.Component {
 
+ render(){
+   const { query } = this.props.router
+   const { content } = query
   return (
     <div>
       <Layout style={{ background: '#FF7000'}}>
@@ -31,26 +36,31 @@ const detail = (router) => {
       <div style={{ background: '#EFEBE9', padding: 24, minHeight: 380 ,maxWidth: '80vw'}}>
       <Row>
       <Col span={6} offset={2}>
-      <CardDetail  data={router.router.query}/>
+      <CardDetail  data={query}/>
       </Col>
       <Col  span={4} offset={1}>
       <Card title="เรื่องย่อ" bordered={false} style={{ width: 420 ,background:'#F8F8F9'}}>
       <p style={{wordWrap: 'break-word'}}>{content}</p>
     </Card>
-      <Modal />
+      <Modal data={query}/>
+      {this.props.isDetail ? <BuyDetail /> : null}
       </Col>
       </Row></div>
-      
     </Content>
-    
-
-
     
     <Footer style={{ background: '#FE7812', textAlign: 'center' }}>GGGG</Footer>
     
       </Layout>
-    </div>
-    
-)}
+    </div>)
+    }
+}
 
-export default withRouter(detail)
+detail.propTypes = {
+  query: propTypes.any
+}
+
+const mapStateToProps = state => ({
+  isDetail: state.isDetail
+})
+
+export default connect(mapStateToProps)(withRouter(detail))

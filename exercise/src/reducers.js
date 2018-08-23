@@ -1,5 +1,8 @@
 const exampleInitialState = {
-    movies: []
+    movies: [],
+    ticket: 0,
+    total: 0,
+    isDetail: false
   }
 
 export const reducer = (state = exampleInitialState, action) => {
@@ -15,7 +18,7 @@ export const reducer = (state = exampleInitialState, action) => {
       data.sort((a,b)=>{
         const aName = a.name.toLowerCase()
         const bName = b.name.toLowerCase()
-        
+
         if(aName > bName){
           return -1
         }
@@ -33,6 +36,21 @@ export const reducer = (state = exampleInitialState, action) => {
       return {
         ...state,
         movies: []
+      }
+    
+    case 'CALCUPRICE':
+      return {
+        ...state,
+        movies: action.payload.data,
+        ticket: action.payload.ticket,
+        movies: action.payload.data,
+        total: action.payload.ticket * action.payload.data.price,
+        isDetail: true
+      }
+    case 'CHECKDETAIL':
+      return {
+        ...state,
+        isDetail: action
       }
     default: return state
   }

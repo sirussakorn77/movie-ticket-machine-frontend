@@ -1,9 +1,19 @@
-import { Modal, Button } from 'antd';
+import propTypes from 'prop-types'
+import { Modal, Button,InputNumber  } from 'antd';
+import { connect } from 'react-redux'
+import { calculatePrice, checkDetail } from '../actions'
 
 class App extends React.Component {
   state = {
     loading: false,
     visible: false,
+    ticket: 1,
+  }
+
+  onChange = (value) => {
+    this.setState({
+      ticket: value,
+    })
   }
 
   showModal = () => {
@@ -14,6 +24,13 @@ class App extends React.Component {
 
   handleOk = () => {
     this.setState({ loading: true });
+    const { dispatch } = this.props
+    const data = {
+      data: this.props.data,
+      ticket: this.state.ticket
+    }
+    dispatch(calculatePrice(data))
+    dispatch(checkDetail(true))
     setTimeout(() => {
       this.setState({ loading: false, visible: false });
     }, 3000);
@@ -42,15 +59,22 @@ class App extends React.Component {
             </Button>,
           ]}
         >
+        
+          <p>{this.props.data.name}</p>
           <p>Some contents...</p>
           <p>Some contents...</p>
           <p>Some contents...</p>
           <p>Some contents...</p>
-          <p>Some contents...</p>
+          <InputNumber min={1} max={10} defaultValue={1} onChange={this.onChange} />
+
         </Modal>
       </div>
     );
   }
 }
 
-export default App
+App.propTypes = {
+  data: propTypes.object.isRequired,
+}
+
+export default connect()(App)
