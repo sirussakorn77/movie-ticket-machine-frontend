@@ -33,7 +33,7 @@ const detail = (router) => {
       <CardDetail data={router.router.query}/>
       </Col>
       <Col  span={4} offset={1}>
-      <Card title="Card title" bordered={false} style={{ width: 400 ,background:'#F8F8F9'}}>
+      <Card title="เรื่องย่อ" bordered={false} style={{ width: 400 ,background:'#F8F8F9'}}>
       <p style={{wordWrap: 'break-word'}}>{content}</p>
     </Card>
       <Modal />

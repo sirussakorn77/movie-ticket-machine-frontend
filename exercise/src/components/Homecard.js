@@ -21,7 +21,9 @@ class Homecard extends Component {
       query: {
         name: data.name,
         src: data.src,
+        director: data.director,
         detail: data.detail,
+        actor: data.actor,
         price: data.price,
         content: data.content
       }
@@ -41,10 +43,10 @@ class Homecard extends Component {
 
   render() {
     return(
-      <div style={{ background: '#ECECEC', padding: '30px' }}>
+      <div style={{ background: '#DFDFDF', padding: '35px' }}>
         <Row gutter={16}>
             {this.props.movies ? this.props.movies.map((idx)=>
-    <Col span={6}>
+    <Col  span={6}>
       <CardDetail data={idx} onCardClick={this.onCardClick} />
     </Col>) : <h2>Loading... </h2>}
         </Row>
