@@ -44,11 +44,17 @@ class Homecard extends Component {
   render() {
     return(
       <div style={{ background: '#DFDFDF', padding: '35px' }}>
+        <center>pp</center>
         <Row gutter={16}>
-            {this.props.movies ? this.props.movies.map((idx)=>
-    <Col  span={6}>
-      <CardDetail data={idx} onCardClick={this.onCardClick} />
-    </Col>) : <h2>Loading... </h2>}
+          {this.props.movies ? this.props.movies.map((idx, index)=>
+            <Col 
+              key={index}
+              span={6}
+            >
+              {/* <p></p> */}
+              <CardDetail data={idx} onCardClick={this.onCardClick} />
+            </Col>
+          ) : <h2>Loading... </h2>}
         </Row>
       </div>
     )

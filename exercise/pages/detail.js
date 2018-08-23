@@ -12,10 +12,10 @@ const detail = (router) => {
 
   return (
     <div>
-      <Layout>
+      <Layout style={{ background: '#FF7000'}}>
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       
-      <Menu
+      {/* <Menu
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={['2']}
@@ -24,16 +24,17 @@ const detail = (router) => {
         <Menu.Item key="1">nav 1</Menu.Item>
         <Menu.Item key="2">nav 2</Menu.Item>  
         <Menu.Item key="3">nav 3</Menu.Item>
-      </Menu>
+      </Menu> */}
     </Header>
+    11111111111111111111111
     <Content style={{ padding: '0 50px', marginTop: 64 }}>
-      <div style={{ background: '#fff', padding: 24, minHeight: 380 ,maxWidth: '80vw'}}>
+      <div style={{ background: '#EFEBE9', padding: 24, minHeight: 380 ,maxWidth: '80vw'}}>
       <Row>
       <Col span={6} offset={2}>
-      <CardDetail data={router.router.query}/>
+      <CardDetail  data={router.router.query}/>
       </Col>
       <Col  span={4} offset={1}>
-      <Card title="เรื่องย่อ" bordered={false} style={{ width: 400 ,background:'#F8F8F9'}}>
+      <Card title="เรื่องย่อ" bordered={false} style={{ width: 420 ,background:'#F8F8F9'}}>
       <p style={{wordWrap: 'break-word'}}>{content}</p>
     </Card>
       <Modal />
@@ -45,12 +46,8 @@ const detail = (router) => {
 
 
     
-    <Footer style={{ textAlign: 'center' }}>
-      Ant Design ©2018 Created by Ant UED
-
-     
-    </Footer>
-      
+    <Footer style={{ background: '#FE7812', textAlign: 'center' }}>GGGG</Footer>
+    
       </Layout>
     </div>
     

@@ -14,13 +14,13 @@ class Searchbar extends React.Component {
     dispatch(clearData(movies))
     dispatch(sortAllMovies(movies))
   }
-   searchMovies (value){
-     const {dispatch} = this.props
+  searchMovies(value) {
+    const {dispatch} = this.props
     searchAllMovies(value).then((data) => {
-      console.log(data)
+      //console.log(data)
       dispatch(updateAllMovies(data))
     })
-   }
+  }
 
   render() {
     return(
