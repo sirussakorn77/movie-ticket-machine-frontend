@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import CardDetail from '../components/CardDetail'
 import { getAllMovies } from '../lib/firebase'
 import { updateAllMovies } from '../actions'
-
+import Searchbar from '../components/Searchbar'
 
 class Homecard extends Component {
 
@@ -44,7 +44,8 @@ class Homecard extends Component {
   render() {
     return(
       <div style={{ background: '#DFDFDF', padding: '35px' }}>
-        <center>pp</center>
+      <Searchbar />
+       <h1> <center>pp</center></h1><hr></hr>
         <Row gutter={16}>
           {this.props.movies ? this.props.movies.map((idx, index)=>
             <Col 

@@ -45,11 +45,11 @@ class App extends React.Component {
     return (
       <div>
         <Button type="primary" onClick={this.showModal}>
-          Open
+          ซื้อ
         </Button>
         <Modal
           visible={visible}
-          title="Title"
+          title="TICKET MOVIES"
           onOk={this.handleOk}
           onCancel={this.handleCancel}
           footer={[
@@ -60,11 +60,11 @@ class App extends React.Component {
           ]}
         >
         
-          <p>{this.props.data.name}</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          <p><h3>ชื่อ ::{this.props.data.name}</h3></p>
+          <p><h3>วันที่ ::   {this.props.data.detail}</h3></p>
+          <p><h3>ราคา ::   {this.props.data.price} บาท</h3></p>
+          
+          
           <InputNumber min={1} max={10} defaultValue={1} onChange={this.onChange} />
 
         </Modal>

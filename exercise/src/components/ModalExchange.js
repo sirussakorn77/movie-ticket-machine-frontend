@@ -38,7 +38,7 @@ class ModalExchange extends React.Component {
         >
         
           <p>money : {this.props.money}</p>
-          <p>Some contents...</p>
+          <p>Some ซ {this.props.total}</p>
           <p>Some contents...</p>
           <p>Some contents...</p>
 

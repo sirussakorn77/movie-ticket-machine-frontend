@@ -31,10 +31,11 @@ class BuyDetail extends React.Component {
 
         return(
             <div>
+                <p>----------------------------------------------------------</p>
                 <p>ชื่อ : {movies.name}</p>
-                <p>ราคาต่อใบ : {movies.price} </p>
-                <p>จำนวนตั๋ว : {ticket} </p>
-                <p>ราคารวม : {total}</p>
+                <p>ราคาต่อใบ :  {movies.price} บาท</p>
+                <p>จำนวนตั๋ว :  {ticket} ใบ</p>
+                <p>ราคารวม :  {total} บาท</p>
                 <InputNumber
                     defaultValue={0}
                     formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
@@ -46,7 +47,7 @@ class BuyDetail extends React.Component {
                 </Button>
                 <Modal
                 visible={visible}
-                title="Title"
+                title="TICKET MOVIES MACHINE : เงินทอน"
                 onOk={this.handleOk}
                 onCancel={this.handleCancel}
                 footer={[
@@ -57,7 +58,7 @@ class BuyDetail extends React.Component {
                 >
                 
                 <p>money : {money}</p>
-                <p>Some contents...</p>
+                <p>total : {total}</p>
                 <p>Some contents...</p>
                 <p>Some contents...</p>
 

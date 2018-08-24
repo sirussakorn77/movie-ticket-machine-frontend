@@ -19,6 +19,7 @@ class detail extends React.Component {
     <div>
       <Layout style={{ background: '#FF7000'}}>
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+        <h1><p style={{color: 'white'}}>TICKET MOVIES MACHINE By PORPOR </p></h1>
       
       {/* <Menu
         theme="dark"
@@ -34,21 +35,27 @@ class detail extends React.Component {
     11111111111111111111111
     <Content style={{ padding: '0 50px', marginTop: 64 }}>
       <div style={{ background: '#EFEBE9', padding: 24, minHeight: 380 ,maxWidth: '80vw'}}>
-      <Row>
-      <Col span={6} offset={2}>
-      <CardDetail  data={query}/>
-      </Col>
-      <Col  span={4} offset={1}>
-      <Card title="เรื่องย่อ" bordered={false} style={{ width: 420 ,background:'#F8F8F9'}}>
-      <p style={{wordWrap: 'break-word'}}>{content}</p>
-    </Card>
-      <Modal data={query}/>
-      {this.props.isDetail ? <BuyDetail /> : null}
-      </Col>
-      </Row></div>
+        <Row>
+          <Col span={6} offset={2}>
+            <CardDetail  data={query}/>
+          </Col>
+        <Col  span={4} offset={1}>
+            <Card title="เรื่องย่อ" bordered={false} style={{ width: 420 ,background:'#F8F8F9'}}>
+            <p style={{wordWrap: 'break-word'}}>{content}</p>
+            </Card>
+        <Col  span={4} offset={1}>
+            <Card title="ซื้อตั๋วภาพยนต์"  style={{ width: 380 ,background:'#F8F8F9'}}>
+              <Modal data={query}/>
+              {this.props.isDetail ? <BuyDetail /> : null}
+            </Card>
+        </Col>
+        </Col>
+        </Row>
+      </div>
     </Content>
+
     
-    <Footer style={{ background: '#FE7812', textAlign: 'center' }}>GGGG</Footer>
+    <Footer style={{ background: '#FE7812', textAlign: 'center' }}>CREDIT MAJOR CINEPLEX</Footer>
     
       </Layout>
     </div>)
