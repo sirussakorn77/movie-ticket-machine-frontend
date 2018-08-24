@@ -32,7 +32,6 @@ class detail extends React.Component {
         <Menu.Item key="3">nav 3</Menu.Item>
       </Menu> */}
     </Header>
-    11111111111111111111111
     <Content style={{ padding: '0 50px', marginTop: 64 }}>
       <div style={{ background: '#EFEBE9', padding: 24, minHeight: 380 ,maxWidth: '80vw'}}>
         <Row>

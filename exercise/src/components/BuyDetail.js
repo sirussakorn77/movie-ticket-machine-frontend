@@ -1,5 +1,6 @@
 import { connect} from 'react-redux'
 import { Modal, Button, InputNumber  } from 'antd'
+import { calculateChange } from '../actions'
 import ModalExchange from '../components/ModalExchange'
 
 let money
@@ -7,29 +8,31 @@ class BuyDetail extends React.Component {
     state = {
         loading: false,
         visible: false,
-      }
-
-      showModal = () => {
-          
-        this.setState({
-          visible: true,
-        });
-      }
-    
-      handleOk = () => {
-        this.setState({ visible: false });
-      }
-        
-    onChange(value){
-       money = value
     }
 
-    render(){
+    showModal = () => {
+        const { dispatch } = this.props
 
-        const { movies, ticket, total} = this.props
+        dispatch(calculateChange(money-this.props.total))
+
+        this.setState({
+            visible: true,
+        });
+    }
+
+    handleOk = () => {
+        this.setState({ visible: false });
+    }
+        
+    onChange(value){
+        money = value
+    }
+
+    render() {
+        const { movies, ticket, total, changes} = this.props
         const { visible } = this.state;
 
-        return(
+        return (
             <div>
                 <p>----------------------------------------------------------</p>
                 <p>ชื่อ : {movies.name}</p>
@@ -43,29 +46,33 @@ class BuyDetail extends React.Component {
                     onChange={this.onChange}
                 />
                 <Button type="primary" onClick={this.showModal}>
-                Submit
+                คิดเงิน
                 </Button>
                 <Modal
-                visible={visible}
-                title="TICKET MOVIES MACHINE : เงินทอน"
-                onOk={this.handleOk}
-                onCancel={this.handleCancel}
-                footer={[
-                    <Button key="back" type="primary"onClick={this.handleOk}>
-                    Ok
-                    </Button>,
-                ]}
+                    visible={visible}
+                    title="TICKET MOVIES MACHINE : เงินทอน"
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                    footer={[
+                        <Button key="back" type="primary"onClick={this.handleOk}>
+                        Ok
+                        </Button>,
+                    ]}
                 >
-                
-                <p>money : {money}</p>
-                <p>total : {total}</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-
+                    <p>money : {money}</p>
+                    <p>total : {total}</p>
+                    {
+                        changes && changes.length > 0 ? 
+                        changes.map((change, index)=>{
+                            return (
+                                <p key={index}>{change.type + ": " + change.value + ' ' + change.unitType}</p>
+                            )
+                        }) : <p>Some Failed...</p>
+                    }
+                   
                 </Modal>
                 
             </div>
-
         )
     }
 }
@@ -73,7 +80,8 @@ class BuyDetail extends React.Component {
 const mapStateToProps = state => ({
     movies: state.movies,
     ticket: state.ticket,
-    total: state.total
-  }) 
+    total: state.total,
+    changes: state.changes
+}) 
 
 export default connect(mapStateToProps)(BuyDetail)
